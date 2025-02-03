@@ -5,5 +5,8 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
+  // In the next step after adding the route in the routes file
+  // we need to tell the app that we use the route and give the
+  // routes object array in provideRouter()
+  providers: [provideRouter(routes),provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
 };
