@@ -1,20 +1,34 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {NavigationEnd, Router, RouterLink, RouterOutlet} from '@angular/router';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   // In each of those components where we perform routing/navigation we must import RouterOutlet, RouterLink
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'routing_in_angular';
+  is_dashboard_route = false;
+  constructor(private router:Router) {
+    this.router.events.subscribe((event)=>{
+      if(event instanceof NavigationEnd){
+        this.is_dashboard_route = event.url.startsWith('/dashboard');
+      }
+    })
+  }
+
+  goToDashboard(){
+    this.router.navigate(['dashboard']);
+  }
+
 }
 
 
-// Video 41,42 done
+// Video 40,41,42 done
 
 //What's Routing
 //Navigation b/w different pages or components.
@@ -38,5 +52,8 @@ export class AppComponent {
 
 
 
-
-
+// Child Routes / Nested Routes
+//the routes which are accessed through some other routes
+//let's say if we've dashboard route,profile route and settings route
+//profile route and settings route are child of dashboard
+//so the url becomes dashboard/settings

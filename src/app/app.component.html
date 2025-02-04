@@ -1,7 +1,7 @@
 <h1>App Component</h1>
 
 <div>
-  <ul>
+  <ul *ngIf="!is_dashboard_route">
     <li>
       <a routerLink="/home">Home</a>
     </li>
@@ -14,7 +14,12 @@
 
       <a routerLink="/about">About</a>
     </li>
-  </ul>
+
+    <li>
+      <button (click)="goToDashboard()">Dashboard</button>
+    </li>
+    </ul>
+
 </div>
 
 

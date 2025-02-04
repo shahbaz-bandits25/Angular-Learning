@@ -1,0 +1,19 @@
+<h1>DAHBOARD</h1>
+
+<div>
+  <ul>
+    <li>
+      <a routerLink="profile">Profile</a>
+    </li>
+    <li>
+      <a routerLink="settings">Settings</a>
+    </li>
+    <li>
+<!--      here we'vev given /home instead of home if we give it only home then it'll consider
+it as the child of dashboard-->
+      <a routerLink="/home">Back</a>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
