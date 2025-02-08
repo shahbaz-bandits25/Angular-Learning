@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import {NavigationEnd, Router, RouterLink, RouterOutlet} from '@angular/router';
 import {NgIf} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   // In each of those components where we perform routing/navigation we must import RouterOutlet, RouterLink
-  imports: [RouterOutlet, RouterLink, NgIf],
+  imports: [RouterOutlet, RouterLink, NgIf, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'routing_in_angular';
   is_dashboard_route = false;
+  userName:string = '';
+  gender:string = '';
   constructor(private router:Router) {
     this.router.events.subscribe((event)=>{
       if(event instanceof NavigationEnd){
@@ -23,6 +26,15 @@ export class AppComponent {
 
   goToDashboard(){
     this.router.navigate(['dashboard']);
+  }
+
+  navigateToGreet(){
+    if(this,this.userName.trim()){
+      this.router.navigate(['/greet',this.gender,this.userName]);
+    }
+    else{
+      alert('Please enter username to navigate to greet!!')
+    }
   }
 
 }
@@ -57,3 +69,7 @@ export class AppComponent {
 //let's say if we've dashboard route,profile route and settings route
 //profile route and settings route are child of dashboard
 //so the url becomes dashboard/settings
+
+
+//What are dynamic routes in Angular?
+//basically the values in the dynamic routes are dynamic

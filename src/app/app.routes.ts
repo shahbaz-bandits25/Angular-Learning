@@ -4,6 +4,7 @@ import {HomeComponent} from "./home/home.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {SettingsComponent} from "./settings/settings.component";
+import {GreetingsComponent} from "./greetings/greetings.component";
 
 export const routes: Routes = [
   // it's a default route if user enter nothing it should redirect to the home page
@@ -20,5 +21,12 @@ export const routes: Routes = [
       {path: 'settings', component: SettingsComponent},
     ]
   },
+
+//   below is the example of the dynamic route
+//   here in below path the value after : is the dynamic or it's kind of a variable
+//   by below you can send single dynamic parm value
+//   {path:'greet/:name' , component:GreetingsComponent}
+//   by below code you can send multiple dynamic values
+  {path:'greet/:gender/:name' , component:GreetingsComponent}
 
 ];
