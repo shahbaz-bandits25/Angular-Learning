@@ -21,10 +21,18 @@ export class QueryFragmentComponent implements OnInit{
   }
 
   ngOnInit(): void {
+      // below line of code we need to access the queryparams like this
+      // abc.com/?name=ali
       this.route.queryParamMap.subscribe((params) => {
         this.queryParamName = params.get('name');
         console.warn('this.queryParamName',this.queryParamName)
       })
+
+
+    // the below line of code we need to get the dynamic value from url like
+    // abc.com/name=ali so it's not a queryParam
+    // this.queryParamName = this.route.snapshot.paramMap.get('name');
+
 
     this.route.fragment.subscribe((fragment)=>{
       if(fragment){
