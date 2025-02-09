@@ -5,6 +5,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {GreetingsComponent} from "./greetings/greetings.component";
+import {QueryFragmentComponent} from "./query-fragment/query-fragment.component";
 
 export const routes: Routes = [
   // it's a default route if user enter nothing it should redirect to the home page
@@ -27,6 +28,9 @@ export const routes: Routes = [
 //   by below you can send single dynamic parm value
 //   {path:'greet/:name' , component:GreetingsComponent}
 //   by below code you can send multiple dynamic values
-  {path:'greet/:gender/:name' , component:GreetingsComponent}
+  {path:'greet/:gender/:name' , component:GreetingsComponent},
+
+//   below we're creating route to learn query fragments
+  {path:'query-fragment', component:QueryFragmentComponent},
 
 ];

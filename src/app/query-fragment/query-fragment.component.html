@@ -1,0 +1,27 @@
+<div>
+  <h1>Query Params && Fragments Learning</h1>
+</div>
+
+<div>
+  <label>UserName</label>
+  <input type="text" [(ngModel)]="userName">
+  <button type="submit" (click)="setQueryParam()">Submit</button>
+</div>
+
+
+<div>
+  <p>Welcome Mr. {{queryParamName}}</p>
+</div>
+
+<div>
+  <a routerLink="/query-fragment" fragment="section1">Go To Section 1</a>
+  <a  routerLink="/query-fragment" fragment="section2">Go To Section 2</a>
+</div>
+
+
+<div id="section1" style="border: 2px solid black; background-color: lightblue;height:50vh;">
+  <p>This is fragment 1</p>
+</div>
+<div id="section2" style="border: 2px solid black; background-color: lightgreen;height:50vh;">
+  <p>This is fragment 2</p>
+</div>

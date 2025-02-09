@@ -73,3 +73,20 @@ export class AppComponent {
 
 //What are dynamic routes in Angular?
 //basically the values in the dynamic routes are dynamic
+
+
+//What are query params?
+//Qyery params are the quereis which we add in our URL like below
+// abc.com/?name=shahbaz
+
+
+// What are fragments?
+//Fragments are the different sections of your page.
+// like my app has installation page so it's route is below
+// abc.com/installation
+// now installation page has 3 sections detail,short and preview
+// If user selects shorts on the installation page so basically user
+// selected a fragment of installation page and the url become
+// abc.com/installation#short
+// and when the above url hits it moves on the short named fragment of the installation page.
+
