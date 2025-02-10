@@ -90,3 +90,10 @@ export class AppComponent {
 // abc.com/installation#short
 // and when the above url hits it moves on the short named fragment of the installation page.
 
+
+//Route guards and protect route are similar
+// By using route guard we can make sure that if we don't want anyone to visit some particular routes without login
+// Or non-admin user can't visit admin routes or pages etc.
+
+// ng generate guard guardName by using this command we can generate a guard which protect our route on which weadd it.
+

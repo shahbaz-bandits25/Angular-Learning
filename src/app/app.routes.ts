@@ -6,6 +6,9 @@ import {ProfileComponent} from "./profile/profile.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {GreetingsComponent} from "./greetings/greetings.component";
 import {QueryFragmentComponent} from "./query-fragment/query-fragment.component";
+import {LoginComponent} from "./login/login.component";
+import {PersonalComponent} from "./personal/personal.component";
+import {AuthGuard} from "./auth-guard.guard";
 
 export const routes: Routes = [
   // it's a default route if user enter nothing it should redirect to the home page
@@ -32,5 +35,11 @@ export const routes: Routes = [
 
 //   below we're creating route to learn query fragments
   {path:'query-fragment', component:QueryFragmentComponent},
+  {path:'login', component:LoginComponent},
+
+//   here in below personal component's route I'll implement the auth guard to make it protected and
+//   without loggedin user can't access it
+//   to protect this route we use our newly created auth guard
+  {path:'personal', component:PersonalComponent, canActivate:[AuthGuard]},
 
 ];
