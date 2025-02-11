@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 export class AppComponent {
   title = 'routing_in_angular';
   is_dashboard_route = false;
+  page_not_found = false;
   userName:string = '';
   gender:string = '';
   constructor(private router:Router) {
@@ -22,10 +23,16 @@ export class AppComponent {
         this.is_dashboard_route = event.url.startsWith('/dashboard');
       }
     })
+
   }
 
   goToDashboard(){
     this.router.navigate(['dashboard']);
+  }
+
+  checkPageFound():boolean{
+    console.warn('this.router.url',this.router.url)
+     return  this.router.url==='/page-not-found';
   }
 
   navigateToGreet(){
@@ -96,4 +103,10 @@ export class AppComponent {
 // Or non-admin user can't visit admin routes or pages etc.
 
 // ng generate guard guardName by using this command we can generate a guard which protect our route on which weadd it.
+
+
+//what are wildcard routes?
+//In angular to catch the invalid or non-existent routes this concept is called as Wildcard Routes
+//Means like 404 page not found etc.
+// To redirect the invalid routes to page not found we use wildcard routes.
 

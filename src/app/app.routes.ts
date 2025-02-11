@@ -9,6 +9,7 @@ import {QueryFragmentComponent} from "./query-fragment/query-fragment.component"
 import {LoginComponent} from "./login/login.component";
 import {PersonalComponent} from "./personal/personal.component";
 import {AuthGuard} from "./auth-guard.guard";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 export const routes: Routes = [
   // it's a default route if user enter nothing it should redirect to the home page
@@ -41,5 +42,13 @@ export const routes: Routes = [
 //   without loggedin user can't access it
 //   to protect this route we use our newly created auth guard
   {path:'personal', component:PersonalComponent, canActivate:[AuthGuard]},
+
+//   below we're adding the wildcard route
+//   it's the route of our page not found page if any link is not found
+  {path:'page-not-found', component:PageNotFoundComponent},
+
+//   now how we get to know user hitted the link which is not in our app?
+  //we add the ** to catch the non-existent and invalid routes
+  {path:'**',redirectTo:'page-not-found'},
 
 ];

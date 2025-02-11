@@ -1,7 +1,7 @@
 <h1>App Component</h1>
 
 <div>
-  <ul *ngIf="!is_dashboard_route">
+  <ul *ngIf="!is_dashboard_route && !checkPageFound()">
     <li>
       <a routerLink="/home">Home</a>
     </li>
@@ -30,11 +30,14 @@
     </li>
     </ul>
 
-  <label > UserName:</label>
-  <input type="text" placeholder="enter username" [(ngModel)]="userName">
-  <label > Gender:</label>
-  <input type="text" placeholder="enter gender" [(ngModel)]="gender">
-  <button (click)="navigateToGreet()">Navigate!</button>
+  <div *ngIf="!checkPageFound()">
+
+    <label > UserName:</label>
+    <input type="text" placeholder="enter username" [(ngModel)]="userName">
+    <label > Gender:</label>
+    <input type="text" placeholder="enter gender" [(ngModel)]="gender">
+    <button (click)="navigateToGreet()">Navigate!</button>
+  </div>
 </div>
 
 
