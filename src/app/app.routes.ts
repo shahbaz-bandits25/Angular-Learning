@@ -40,7 +40,12 @@ export const routes: Routes = [
             c.GreetingsComponent
           ),
   },
-
+//   If you wanna apply lazy loading on the module instead of component then use the below code
+//   {path:'greet/:gender/:name', loadChildren:() =>
+//       import('path of the .module like above we gave component's path').then((m)=>
+//         m.MoudleName
+//       ),
+//   },
 //   below we're creating route to learn query fragments
   {path:'query-fragment', component:QueryFragmentComponent},
   {path:'login', component:LoginComponent},
