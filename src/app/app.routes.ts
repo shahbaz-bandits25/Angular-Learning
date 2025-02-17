@@ -32,7 +32,14 @@ export const routes: Routes = [
 //   by below you can send single dynamic parm value
 //   {path:'greet/:name' , component:GreetingsComponent}
 //   by below code you can send multiple dynamic values
-  {path:'greet/:gender/:name' , component:GreetingsComponent},
+//   {path:'greet/:gender/:name' , component:GreetingsComponent},
+
+//   here I'll apply lazy loading on the Greet Component
+  {path:'greet/:gender/:name', loadComponent:() =>
+          import('./greetings/greetings.component').then((c)=>
+            c.GreetingsComponent
+          ),
+  },
 
 //   below we're creating route to learn query fragments
   {path:'query-fragment', component:QueryFragmentComponent},

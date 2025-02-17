@@ -36,7 +36,7 @@ export class AppComponent {
   }
 
   navigateToGreet(){
-    if(this,this.userName.trim()){
+    if(this.userName.trim()){
       this.router.navigate(['/greet',this.gender,this.userName]);
     }
     else{
