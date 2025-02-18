@@ -10,6 +10,7 @@ import {LoginComponent} from "./login/login.component";
 import {PersonalComponent} from "./personal/personal.component";
 import {AuthGuard} from "./auth-guard.guard";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {dashboard_routes} from "./dashboard/dashboard.routes";
 
 export const routes: Routes = [
   // it's a default route if user enter nothing it should redirect to the home page
@@ -20,11 +21,16 @@ export const routes: Routes = [
 //   here how we can create the child routes
 //   for example if we've a parent route named Dashboard
 //   and it's child routes are settings and profile
-  {path: 'dashboard', component: DashboardComponent,
-    children:[
-      {path: 'profile', component: ProfileComponent},
-      {path: 'settings', component: SettingsComponent},
-    ]
+//   {path: 'dashboard', component: DashboardComponent,
+//     children:[
+//       {path: 'profile', component: ProfileComponent},
+//       {path: 'settings', component: SettingsComponent},
+//     ]
+//   },
+
+//   below is the example of to lazy load the component with some child or nested routes
+  {path:'dashboard',loadChildren:()=>
+  import('./dashboard/dashboard.routes').then(r => r.dashboard_routes)
   },
 
 //   below is the example of the dynamic route
